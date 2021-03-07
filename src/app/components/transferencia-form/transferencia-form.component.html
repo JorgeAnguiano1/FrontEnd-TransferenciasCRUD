@@ -1,0 +1,165 @@
+<div class="container" style="padding-top: 30px">
+    <button type="button" [ngClass]="remitente?'btn btn-success btn-block':'btn btn-warning btn-block'" (click)= "buscarRemitente()">{{remitente ? 'ID Remitente: ' : 'Seleccionar Remitente'}}</button>
+    <div class="row" style="padding-top: 10px" *ngIf = "seleccionarRemitente">
+        <div class="col">
+            <div class="form-group">
+                <input type="text" class="form-control" name="filterClientes" placeholder="Buscar nombre..." [(ngModel)]="filterClientes">
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf = "seleccionarRemitente">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido Paterno</th>
+                        <th scope="col">Apellido Materno</th>
+                        <th scope="col">Calle</th>
+                        <th scope="col">Número</th>
+                        <th scope="col">Colonia</th>
+                        <th scope="col">CP</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">País</th>
+                        <th scope="col">Fecha de registro</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor = "let cliente of clientes | filter: filterClientes">
+                      <tr>
+                        <th scope="row">{{cliente.idCliente}}</th>
+                        <td>{{cliente.nombre}}</td>
+                        <td>{{cliente.apellidoPaterno}}</td>
+                        <td>{{cliente.apellidoMaterno}}</td>
+                        <td>{{cliente.calle}}</td>
+                        <td>{{cliente.numero}}</td>
+                        <td>{{cliente.colonia}}</td>
+                        <td>{{cliente.cp}}</td>
+                        <td>{{cliente.ciudad}}</td>
+                        <td>{{cliente.pais}}</td>
+                        <td>{{cliente.fechaRegistro}}</td>
+                        <th><button type="button" class="btn" (click)=obtenerRemitente(cliente.idCliente)><i class="far fa-check-circle"></i></button></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+        </div>
+    </div>
+
+    <button type="button" [ngClass]="beneficiario?'btn btn-success btn-block':'btn btn-warning btn-block'" (click)= "buscarBeneficiario()">{{beneficiario ? 'ID Beneficiario: ' : 'Seleccionar Beneficiario'}}</button>
+    <div class="row" style="padding-top: 10px" *ngIf = "seleccionarBeneficiario">
+        <div class="col">
+            <div class="form-group">
+                <input type="text" class="form-control" name="filterClientes2" placeholder="Buscar nombre..." [(ngModel)]="filterClientes2">
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf = "seleccionarBeneficiario">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido Paterno</th>
+                        <th scope="col">Apellido Materno</th>
+                        <th scope="col">Calle</th>
+                        <th scope="col">Número</th>
+                        <th scope="col">Colonia</th>
+                        <th scope="col">CP</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">País</th>
+                        <th scope="col">Fecha de registro</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor = "let cliente of clientes | filter: filterClientes2">
+                      <tr>
+                        <th scope="row">{{cliente.idCliente}}</th>
+                        <td>{{cliente.nombre}}</td>
+                        <td>{{cliente.apellidoPaterno}}</td>
+                        <td>{{cliente.apellidoMaterno}}</td>
+                        <td>{{cliente.calle}}</td>
+                        <td>{{cliente.numero}}</td>
+                        <td>{{cliente.colonia}}</td>
+                        <td>{{cliente.cp}}</td>
+                        <td>{{cliente.ciudad}}</td>
+                        <td>{{cliente.pais}}</td>
+                        <td>{{cliente.fechaRegistro}}</td>
+                        <th><button type="button" class="btn" (click)=obtenerBeneficiario(cliente.idCliente)><i class="far fa-check-circle"></i></button></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+        </div>
+    </div>
+
+    <button type="button" [ngClass]="pagador?'btn btn-success btn-block':'btn btn-warning btn-block'" (click)= "buscarPagador()">{{pagador ? 'ID Pagador: ' : 'Seleccionar Pagador'}}</button>
+    <div class="row" style="padding-top: 10px" *ngIf = "seleccionarPagador">
+        <div class="col">
+            <div class="form-group">
+                <input type="text" class="form-control" name="filterPagadores" placeholder="Buscar nombre..." [(ngModel)]="filterPagadores">
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf = "seleccionarPagador">
+        <div class="col">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Calle</th>
+                        <th scope="col">Número</th>
+                        <th scope="col">Colonia</th>
+                        <th scope="col">CP</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">País</th>
+                        <th scope="col">Fecha de registro</th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor = "let pagador of pagadores | filter: filterPagadores">
+                      <tr>
+                        <th scope="row">{{pagador.idPagador}}</th>
+                        <td>{{pagador.nombre}}</td>
+                        <td>{{pagador.calle}}</td>
+                        <td>{{pagador.numero}}</td>
+                        <td>{{pagador.colonia}}</td>
+                        <td>{{pagador.cp}}</td>
+                        <td>{{pagador.ciudad}}</td>
+                        <td>{{pagador.pais}}</td>
+                        <td>{{pagador.fechaRegistro}}</td>
+                        <th><button type="button" class="btn" (click)=obtenerPagador(pagador.idPagador)><i class="far fa-check-circle"></i></button></th>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+        </div>
+    </div>
+
+    <div style="padding-top: 30px">
+    </div>
+    <form>
+        <div class="form-row">
+          <div class="col-md-3 mb-3">
+            <label for="validationDefault01">Monto</label>
+            <input type="number" name=monto class="form-control" [(ngModel)]="transferencia.monto" id="validationDefault01" required>
+          </div>
+          <div class="col-md-3   mb-3">
+            <label for="validationDefault01">Comisión</label>
+            <input type="number" value="{{transferencia.monto * 0.15}}" name=comision class="form-control" [(ngModel)]="transferencia.comision" id="validationDefault01" required disabled>
+          </div>
+        </div>
+        <div align="center" style="padding-top: 50px">
+            <button id = "comision" class="btn btn-outline-success" *ngIf = "remitente && beneficiario && pagador && transferencia.monto != null" (click) = "crearTransferencia()">Enviar</button>
+        </div>
+        <div align="right">
+          <button [routerLink]="['/transferencias/']" class="btn btn-outline-danger">Cancelar</button>
+        </div>
+    </form>
+</div>

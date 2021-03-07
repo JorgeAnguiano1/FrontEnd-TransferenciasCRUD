@@ -1,0 +1,42 @@
+<div align="left" style="padding-bottom: 5px;">
+  <h1 class="display-1" style="font-size: x-large;">Clientes</h1>
+</div>
+<div align="right" style="padding-bottom: 5px;">
+    <a routerLink="/clientes/agregar" class = "fas fa-user-plus fa-2x"></a>
+</div>
+<div class="table-responsive">
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido Paterno</th>
+        <th scope="col">Apellido Materno</th>
+        <th scope="col">Calle</th>
+        <th scope="col">Número</th>
+        <th scope="col">Colonia</th>
+        <th scope="col">CP</th>
+        <th scope="col">Ciudad</th>
+        <th scope="col">País</th>
+        <th scope="col">Fecha de registro</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody *ngFor = "let cliente of clientes">
+      <tr>
+        <th scope="row">{{cliente.idCliente}}</th>
+        <td>{{cliente.nombre}}</td>
+        <td>{{cliente.apellidoPaterno}}</td>
+        <td>{{cliente.apellidoMaterno}}</td>
+        <td>{{cliente.calle}}</td>
+        <td>{{cliente.numero}}</td>
+        <td>{{cliente.colonia}}</td>
+        <td>{{cliente.cp}}</td>
+        <td>{{cliente.ciudad}}</td>
+        <td>{{cliente.pais}}</td>
+        <td>{{cliente.fechaRegistro}}</td>
+        <th><a [routerLink] = "['/clientes/editar', cliente.idCliente]" class = "fas fa-user-edit"></a></th>
+      </tr>
+    </tbody>
+  </table>
+</div>

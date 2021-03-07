@@ -1,0 +1,49 @@
+<div *ngIf="editPagador" align="right">
+  <a title="Eliminar" (click)="deletePagador()" class = "fas fa-trash-alt"></a>
+</div>
+<div style="padding-top: 25px;">
+    <form>
+        <div class="form-row">
+          <div class="col-md-12 mb-3">
+            <label for="validationDefault01">Nombre</label>
+            <input type="text" name=nombre class="form-control" [(ngModel)]="pagador.nombre" id="validationDefault01" required>
+          </div>
+        </div>
+    
+        <div class="form-row">
+          <div class="col-md-5 mb-3">
+            <label for="validationDefault02">Calle</label>
+            <input type="text" name=calle class="form-control" [(ngModel)]="pagador.calle" id="validationDefault02" required>
+          </div>
+          <div class="col-md-5 mb-3">
+            <label for="validationDefault03">Colonia</label>
+            <input type="text" name=colonia class="form-control" [(ngModel)]="pagador.colonia" id="validationDefault03" required>
+          </div>
+          <div class="col-md-2 mb-3">
+            <label for="validationDefault04">Número</label>
+            <input type="text" name=numero class="form-control" [(ngModel)]="pagador.numero" id="validationDefault04" required>
+          </div>
+        </div>
+    
+        <div class="form-row">
+            <div class="col-md-5 mb-3">
+              <label for="validationDefault05">Ciudad</label>
+              <input type="text" name=ciudad class="form-control" [(ngModel)]="pagador.ciudad" id="validationDefault05" required>
+            </div>
+            <div class="col-md-5 mb-3">
+              <label for="validationDefault06">País</label>
+              <input type="text" name=pais class="form-control" [(ngModel)]="pagador.pais" id="validationDefault06" required>
+            </div>
+            <div class="col-md-2 mb-3">
+              <label for="validationDefault07">Código Postal</label>
+              <input type="text" name=cp class="form-control" [(ngModel)]="pagador.cp" id="validationDefault07" required>
+            </div>
+          </div>
+        <div align="center">
+        <button class="btn btn-outline-success" (click) = "editPagador ? updatePagador() : crearPagador()">Enviar</button>
+        </div>
+        <div align="right">
+          <button [routerLink]="['/pagadores/']" class="btn btn-outline-danger">Cancelar</button>
+        </div>
+      </form>
+    </div>

@@ -1,0 +1,38 @@
+<div align="left" style="padding-bottom: 5px;">
+  <h1 class="display-1" style="font-size: x-large;">Pagadores</h1>
+</div>
+<div align="right" style="padding-bottom: 5px;">
+    <a routerLink="/pagadores/agregar" class = "fas fa-plus-circle fa-2x"></a>
+</div>
+<div class="table-responsive">
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Calle</th>
+        <th scope="col">Número</th>
+        <th scope="col">Colonia</th>
+        <th scope="col">CP</th>
+        <th scope="col">Ciudad</th>
+        <th scope="col">País</th>
+        <th scope="col">Fecha de registro</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody *ngFor = "let pagador of pagadores">
+      <tr>
+        <th scope="row">{{pagador.idPagador}}</th>
+        <td>{{pagador.nombre}}</td>
+        <td>{{pagador.calle}}</td>
+        <td>{{pagador.numero}}</td>
+        <td>{{pagador.colonia}}</td>
+        <td>{{pagador.cp}}</td>
+        <td>{{pagador.ciudad}}</td>
+        <td>{{pagador.pais}}</td>
+        <td>{{pagador.fechaRegistro}}</td>
+        <th><a [routerLink] = "['/pagadores/editar', pagador.idPagador]" class = "far fa-edit"></a></th>
+      </tr>
+    </tbody>
+  </table>
+</div>

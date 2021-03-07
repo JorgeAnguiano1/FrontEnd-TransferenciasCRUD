@@ -1,0 +1,41 @@
+<div align="left" style="padding-bottom: 5px;">
+  <h1 class="display-1" style="font-size: x-large;">Transferencias</h1>
+</div>
+<div align="right" style="padding-bottom: 5px;">
+    <a routerLink="/transferencias/agregar" class = "fas fa-plus-circle fa-2x"></a>
+</div>
+<div class="table-responsive">
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">ID Remitente</th>
+        <th scope="col">Nombre Remitente</th>
+        <th scope="col">ID Beneficiario</th>
+        <th scope="col">Nombre Beneficiario</th>
+        <th scope="col">ID Pagador</th>
+        <th scope="col">Nombre Pagador</th>
+        <th scope="col">Monto</th>
+        <th scope="col">Comisión</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Fecha tramitado</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody *ngFor = "let transferencia of transferencias">
+      <tr>
+        <th scope="row">{{transferencia.idTransferencia}}</th>
+        <td>{{transferencia.idRemitente}}</td>
+        <td>{{transferencia.nombreRemitente}}</td>
+        <td>{{transferencia.idBeneficiario}}</td>
+        <td>{{transferencia.nombreBeneficiario}}</td>
+        <td>{{transferencia.idPagador}}</td>
+        <td>{{transferencia.nombrePagador}}</td>
+        <td>{{transferencia.monto}}</td>
+        <td>{{transferencia.comision}}</td>
+        <td>{{transferencia.estado}}</td>
+        <td>{{transferencia.fechaTramitado}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
